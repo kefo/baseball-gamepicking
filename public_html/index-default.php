@@ -2,8 +2,10 @@
 
 //define('CODEIGNITERPATH', '/home/kefo/Programs/CodeIgniter_2.1.4/');
 //define('REPOPATH', '/home/kefo/workspaces/nationals-2014/');
-define("CODEIGNITERPATH", "/hsphere/local/home/echobravo/CodeIgniter_2.1.3/"); 
-define('REPOPATH', '/hsphere/local/home/echobravo/3windmills.com/nationals-2014/');
+//define('CODEIGNITERPATH', '/home/kefo/Desktop/Kevin/Active/CodeIgniter_2.1.3/');
+//define('REPOPATH', '/home/kefo/Desktop/Kevin/Active/nationals-2014/');
+define("CODEIGNITERPATH", "/hsphere/local/home/uname/CodeIgniter_2.1.3/"); 
+define('REPOPATH', '/hsphere/local/home/uname/domain/nationals-2014/');
 
 // Relative path of application.  
 //	Should end in "/".
