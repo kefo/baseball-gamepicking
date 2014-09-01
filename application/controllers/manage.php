@@ -2,92 +2,60 @@
 
 class Manage extends CI_Controller {
     
+    // Sample, before postseason amending
+    /*
     var $gamesA = array(
 		array("gameID" => NULL, "gameDate" => "2014-04-04", "gameTime" => "13:05", "gameOpponent" => "Braves"),
 		array("gameID" => NULL, "gameDate" => "2014-04-05", "gameTime" => "19:05", "gameOpponent" => "Braves"),
 		array("gameID" => NULL, "gameDate" => "2014-04-06", "gameTime" => "13:35", "gameOpponent" => "Braves"),
 		array("gameID" => NULL, "gameDate" => "2014-04-08", "gameTime" => "19:05", "gameOpponent" => "Marlins"),
 		array("gameID" => NULL, "gameDate" => "2014-04-09", "gameTime" => "19:05", "gameOpponent" => "Marlins"),
-		array("gameID" => NULL, "gameDate" => "2014-04-10", "gameTime" => "16:05", "gameOpponent" => "Marlins"),
-		array("gameID" => NULL, "gameDate" => "2014-04-17", "gameTime" => "19:05", "gameOpponent" => "Cardinals"),
-		array("gameID" => NULL, "gameDate" => "2014-04-18", "gameTime" => "19:05", "gameOpponent" => "Cardinals"),
-		array("gameID" => NULL, "gameDate" => "2014-04-19", "gameTime" => "13:05", "gameOpponent" => "Cardinals"),
-		array("gameID" => NULL, "gameDate" => "2014-04-20", "gameTime" => "13:35", "gameOpponent" => "Cardinals"),
-		array("gameID" => NULL, "gameDate" => "2014-04-21", "gameTime" => "19:05", "gameOpponent" => "Angels"),
-		array("gameID" => NULL, "gameDate" => "2014-04-22", "gameTime" => "19:05", "gameOpponent" => "Angels"),
-		array("gameID" => NULL, "gameDate" => "2014-04-23", "gameTime" => "19:05", "gameOpponent" => "Angels"),
-		array("gameID" => NULL, "gameDate" => "2014-04-24", "gameTime" => "19:05", "gameOpponent" => "Padres"),
-		array("gameID" => NULL, "gameDate" => "2014-04-25", "gameTime" => "19:05", "gameOpponent" => "Padres"),
-		array("gameID" => NULL, "gameDate" => "2014-04-26", "gameTime" => "13:05", "gameOpponent" => "Padres"),
-		array("gameID" => NULL, "gameDate" => "2014-04-27", "gameTime" => "13:35", "gameOpponent" => "Padres"),
-		array("gameID" => NULL, "gameDate" => "2014-05-05", "gameTime" => "19:05", "gameOpponent" => "Dodgers"),
-		array("gameID" => NULL, "gameDate" => "2014-05-06", "gameTime" => "19:05", "gameOpponent" => "Dodgers"),
-		array("gameID" => NULL, "gameDate" => "2014-05-07", "gameTime" => "13:05", "gameOpponent" => "Dodgers"),
-		array("gameID" => NULL, "gameDate" => "2014-05-16", "gameTime" => "19:05", "gameOpponent" => "Mets"),
-		array("gameID" => NULL, "gameDate" => "2014-05-17", "gameTime" => "16:05", "gameOpponent" => "Mets"),
-		array("gameID" => NULL, "gameDate" => "2014-05-18", "gameTime" => "13:35", "gameOpponent" => "Mets"),
-		array("gameID" => NULL, "gameDate" => "2014-05-19", "gameTime" => "19:05", "gameOpponent" => "Reds"),
-		array("gameID" => NULL, "gameDate" => "2014-05-20", "gameTime" => "19:05", "gameOpponent" => "Reds"),
-		array("gameID" => NULL, "gameDate" => "2014-05-21", "gameTime" => "16:05", "gameOpponent" => "Reds"),
-		array("gameID" => NULL, "gameDate" => "2014-05-26", "gameTime" => "13:35", "gameOpponent" => "Marlins"),
-		array("gameID" => NULL, "gameDate" => "2014-05-27", "gameTime" => "19:05", "gameOpponent" => "Marlins"),
-		array("gameID" => NULL, "gameDate" => "2014-05-28", "gameTime" => "19:05", "gameOpponent" => "Marlins"),
-		array("gameID" => NULL, "gameDate" => "2014-05-30", "gameTime" => "19:05", "gameOpponent" => "Rangers"),
-		array("gameID" => NULL, "gameDate" => "2014-05-31", "gameTime" => "12:05", "gameOpponent" => "Rangers"),
-		array("gameID" => NULL, "gameDate" => "2014-06-01", "gameTime" => "13:35", "gameOpponent" => "Rangers"),
-		array("gameID" => NULL, "gameDate" => "2014-06-03", "gameTime" => "19:05", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-06-04", "gameTime" => "19:05", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-06-05", "gameTime" => "16:05", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-06-17", "gameTime" => "19:05", "gameOpponent" => "Astros"),
-		array("gameID" => NULL, "gameDate" => "2014-06-18", "gameTime" => "19:05", "gameOpponent" => "Astros"),
-		array("gameID" => NULL, "gameDate" => "2014-06-19", "gameTime" => "19:05", "gameOpponent" => "Braves"),
-		array("gameID" => NULL, "gameDate" => "2014-06-20", "gameTime" => "19:05", "gameOpponent" => "Braves"),
-		array("gameID" => NULL, "gameDate" => "2014-06-21", "gameTime" => "19:15", "gameOpponent" => "Braves"),
-		array("gameID" => NULL, "gameDate" => "2014-06-22", "gameTime" => "13:35", "gameOpponent" => "Braves"),
-		array("gameID" => NULL, "gameDate" => "2014-06-30", "gameTime" => "19:05", "gameOpponent" => "Rockies"),
-		array("gameID" => NULL, "gameDate" => "2014-07-01", "gameTime" => "19:05", "gameOpponent" => "Rockies"),
-		array("gameID" => NULL, "gameDate" => "2014-07-02", "gameTime" => "18:05", "gameOpponent" => "Rockies"),
-		array("gameID" => NULL, "gameDate" => "2014-07-04", "gameTime" => "11:05", "gameOpponent" => "Cubs"),
-		array("gameID" => NULL, "gameDate" => "2014-07-05", "gameTime" => "16:05", "gameOpponent" => "Cubs"),
-		array("gameID" => NULL, "gameDate" => "2014-07-06", "gameTime" => "13:35", "gameOpponent" => "Cubs"),
-		array("gameID" => NULL, "gameDate" => "2014-07-07", "gameTime" => "19:05", "gameOpponent" => "Orioles"),
-		array("gameID" => NULL, "gameDate" => "2014-07-08", "gameTime" => "19:05", "gameOpponent" => "Orioles"),
-		array("gameID" => NULL, "gameDate" => "2014-07-18", "gameTime" => "19:05", "gameOpponent" => "Brewers"),
-		array("gameID" => NULL, "gameDate" => "2014-07-19", "gameTime" => "19:05", "gameOpponent" => "Brewers"),
-		array("gameID" => NULL, "gameDate" => "2014-07-20", "gameTime" => "13:35", "gameOpponent" => "Brewers"),
-		array("gameID" => NULL, "gameDate" => "2014-07-31", "gameTime" => "19:05", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-08-01", "gameTime" => "19:05", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-08-02", "gameTime" => "19:05", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-08-03", "gameTime" => "13:35", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-08-05", "gameTime" => "19:05", "gameOpponent" => "Mets"),
-		array("gameID" => NULL, "gameDate" => "2014-08-06", "gameTime" => "19:05", "gameOpponent" => "Mets"),
-		array("gameID" => NULL, "gameDate" => "2014-08-07", "gameTime" => "12:35", "gameOpponent" => "Mets"),
-		array("gameID" => NULL, "gameDate" => "2014-08-15", "gameTime" => "19:05", "gameOpponent" => "Pirates"),
-		array("gameID" => NULL, "gameDate" => "2014-08-16", "gameTime" => "19:05", "gameOpponent" => "Pirates"),
-		array("gameID" => NULL, "gameDate" => "2014-08-17", "gameTime" => "17:05", "gameOpponent" => "Pirates"),
-		array("gameID" => NULL, "gameDate" => "2014-08-18", "gameTime" => "19:05", "gameOpponent" => "D-backs"),
-		array("gameID" => NULL, "gameDate" => "2014-08-19", "gameTime" => "19:05", "gameOpponent" => "D-backs"),
-		array("gameID" => NULL, "gameDate" => "2014-08-20", "gameTime" => "19:05", "gameOpponent" => "D-backs"),
-		array("gameID" => NULL, "gameDate" => "2014-08-21", "gameTime" => "16:05", "gameOpponent" => "D-backs"),
-		array("gameID" => NULL, "gameDate" => "2014-08-22", "gameTime" => "19:05", "gameOpponent" => "Giants"),
-		array("gameID" => NULL, "gameDate" => "2014-08-23", "gameTime" => "16:05", "gameOpponent" => "Giants"),
-		array("gameID" => NULL, "gameDate" => "2014-08-24", "gameTime" => "13:35", "gameOpponent" => "Giants"),
-		array("gameID" => NULL, "gameDate" => "2014-09-05", "gameTime" => "19:05", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-09-06", "gameTime" => "16:05", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-09-07", "gameTime" => "13:35", "gameOpponent" => "Phillies"),
-		array("gameID" => NULL, "gameDate" => "2014-09-08", "gameTime" => "19:05", "gameOpponent" => "Braves"),
-		array("gameID" => NULL, "gameDate" => "2014-09-09", "gameTime" => "19:05", "gameOpponent" => "Braves"),
-		array("gameID" => NULL, "gameDate" => "2014-09-10", "gameTime" => "16:05", "gameOpponent" => "Braves"),
-		array("gameID" => NULL, "gameDate" => "2014-09-23", "gameTime" => "19:05", "gameOpponent" => "Mets"),
-		array("gameID" => NULL, "gameDate" => "2014-09-24", "gameTime" => "19:05", "gameOpponent" => "Mets"),
-		array("gameID" => NULL, "gameDate" => "2014-09-25", "gameTime" => "19:05", "gameOpponent" => "Mets"),
-		array("gameID" => NULL, "gameDate" => "2014-09-26", "gameTime" => "19:05", "gameOpponent" => "Marlins"),
-		array("gameID" => NULL, "gameDate" => "2014-09-27", "gameTime" => "16:05", "gameOpponent" => "Marlins"),
-		array("gameID" => NULL, "gameDate" => "2014-09-28", "gameTime" => "13:35", "gameOpponent" => "Marlins")
+		array("gameID" => NULL, "gameDate" => "2014-04-10", "gameTime" => "16:05", "gameOpponent" => "Marlins")
+	);
+	*/
+	
+    /*
+    What is the format of the MLB Playoffs?
+
+    Round 1 is a single game series between the wildcard teams
+    Rounds 2           : Best 3 out of 5 : HHAAH
+    Rounds 3 and 4 : Best 4 out of 7 : HHAAAHH
+    
+    One must assume home field advantage.
+    */
+    
+    var $gamesA = array(
+		array("gameID" => NULL, "gameDate" => "2014-09-29", "gameTime" => "20:05", "gameOpponent" => "Tie breaker", "gamePrice" => "110"),
+		
+		array("gameID" => NULL, "gameDate" => "2014-09-30", "gameTime" => "20:05", "gameOpponent" => "Wildcard", "gamePrice" => "160"),
+		
+		array("gameID" => NULL, "gameDate" => "2014-10-02", "gameTime" => "20:05", "gameOpponent" => "LDS1", "gamePrice" => "160"),
+		array("gameID" => NULL, "gameDate" => "2014-10-03", "gameTime" => "20:05", "gameOpponent" => "LDS2", "gamePrice" => "160"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-05", "gameTime" => "20:05", "gameOpponent" => "LDS3", "gamePrice" => "160"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-06", "gameTime" => "20:05", "gameOpponent" => "LDS4", "gamePrice" => "160"),
+		array("gameID" => NULL, "gameDate" => "2014-10-08", "gameTime" => "20:05", "gameOpponent" => "LDS5", "gamePrice" => "160"),
+		
+		array("gameID" => NULL, "gameDate" => "2014-10-10", "gameTime" => "20:05", "gameOpponent" => "LCS1", "gamePrice" => "280"),
+		array("gameID" => NULL, "gameDate" => "2014-10-11", "gameTime" => "20:05", "gameOpponent" => "LCS2", "gamePrice" => "280"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-13", "gameTime" => "20:05", "gameOpponent" => "LCS3", "gamePrice" => "280"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-14", "gameTime" => "20:05", "gameOpponent" => "LCS4", "gamePrice" => "280"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-15", "gameTime" => "20:05", "gameOpponent" => "LCS5", "gamePrice" => "280"),
+		array("gameID" => NULL, "gameDate" => "2014-10-17", "gameTime" => "20:05", "gameOpponent" => "LCS6", "gamePrice" => "280"),
+		array("gameID" => NULL, "gameDate" => "2014-10-18", "gameTime" => "20:05", "gameOpponent" => "LCS7", "gamePrice" => "280"),
+		
+		// American league won all-star game in 2014, so we know Nats will not have home field advantage (but what was charged?).
+		//array("gameID" => NULL, "gameDate" => "2014-10-22", "gameTime" => "20:05", "gameOpponent" => "WS1", "gamePrice" => "550"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-23", "gameTime" => "20:05", "gameOpponent" => "WS2", "gamePrice" => "550"),
+		array("gameID" => NULL, "gameDate" => "2014-10-25", "gameTime" => "20:05", "gameOpponent" => "WS3", "gamePrice" => "550"),
+		array("gameID" => NULL, "gameDate" => "2014-10-26", "gameTime" => "20:05", "gameOpponent" => "WS4", "gamePrice" => "550"),
+		array("gameID" => NULL, "gameDate" => "2014-10-27", "gameTime" => "20:05", "gameOpponent" => "WS5", "gamePrice" => "550")
+		//array("gameID" => NULL, "gameDate" => "2014-10-29", "gameTime" => "20:05", "gameOpponent" => "WS6", "gamePrice" => "550"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-30", "gameTime" => "20:05", "gameOpponent" => "WS7", "gamePrice" => "550"),
+		
 	);
 
 	var $shareholders = array(
-		"Ford",
+		//"Ford",
 		"Ford",
 		"Mow",
 		"Hisel",
@@ -99,7 +67,8 @@ class Manage extends CI_Controller {
 		"Baldwin",
 		"McDermott",
 		"Gikowich",
-		"Harmala",
+		"Harmala"
+		/*
 		"Sherick",
 		"Hisel",
 		"Mow",
@@ -168,6 +137,7 @@ class Manage extends CI_Controller {
 		"Hisel",
 		"Mow",
 		"Ford"
+		*/
 	);
 
 	public function __construct()
@@ -227,14 +197,18 @@ class Manage extends CI_Controller {
             'gameSpecial' => array(
                 'type' =>'CHAR',
                 'constraint' => '80'
+            ),
+            'gamePrice' => array(
+                'type' =>'CHAR',
+                'constraint' => '4'
             )
         );
         
         $this->dbforge->add_field($fields);
         $this->dbforge->add_key('gameID');
-        $manage_table = $this->dbforge->create_table('games', TRUE); // TRUE will check if it exists
+        $manage_table = $this->dbforge->create_table($this->config->item('games_table'), TRUE); // TRUE will check if it exists
         
-        $this->db->insert_batch('games', $this->gamesA); 
+        $this->db->insert_batch($this->config->item('games_table'), $this->gamesA); 
         
         $fields = array(
             'shID' => array(
@@ -270,7 +244,7 @@ class Manage extends CI_Controller {
         $this->dbforge->add_field($fields);
         $this->dbforge->add_key('shID', TRUE);
         $this->dbforge->add_key('shHash');
-        $data_table = $this->dbforge->create_table('shareholders', TRUE); // TRUE will check if it exists
+        $data_table = $this->dbforge->create_table($this->config->item('shareholders_table'), TRUE); // TRUE will check if it exists
         
         // Need to create the batch load
         $emails = array(
@@ -312,11 +286,11 @@ class Manage extends CI_Controller {
             array_push($shareholdersA, $s);
         }
         
-        $this->db->insert_batch('shareholders', $shareholdersA); 
+        $this->db->insert_batch($this->config->item('shareholders_table'), $shareholdersA); 
         
         $sn = $_SERVER["SERVER_NAME"];
         $headers = 'From: kford@3windmills.com';
-        $msg = "Click the link below (or copy and paste it into your browser) to select the first Nationals game. \n\nhttp://" . $sn . "/nationals-2014/games/" . $shareholdersA[0]["shHash"] . "/select";
+        $msg = "Click the link below (or copy and paste it into your browser) to select the first Nationals game. \n\nhttp://" . $sn . "/nationals-2014-postseason/games/" . $shareholdersA[0]["shHash"] . "/select";
         mail($shareholdersA[0]["shEmail"], "First Pick", $msg, $headers);
         
 		$data['page_title'] = 'Instantiate DB';
@@ -336,8 +310,8 @@ class Manage extends CI_Controller {
 	    $this->load->database();
 	    $this->load->dbforge();
 
-        $this->db->truncate("games");
-        $this->db->truncate("shareholders");
+        $this->db->truncate($this->config->item('games_table'));
+        $this->db->truncate($this->config->item('shareholders_table'));
         
 		$data['page_title'] = 'Reset DB';
 		$data['page_lead'] = 'Resetting time.';

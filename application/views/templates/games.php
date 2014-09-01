@@ -2,13 +2,13 @@
             <?php
             if ($error == 1) {
                 echo '<div class="alert alert-warning">Invalid selection ID.</div>';
-                echo '<a href="/nationals-2014/games/">Return to schedule.</a>';
+                echo '<a href="/nationals-2014-postseason/games/">Return to schedule.</a>';
             } else if ($error == 2) {
                 echo '<div class="alert alert-warning">Selection already made for this ID.</div>';
-                echo '<a href="/nationals-2014/games/">Return to schedule.</a>';
+                echo '<a href="/nationals-2014-postseason/games/">Return to schedule.</a>';
             } else if ($error == 3) {
                 echo '<div class="alert alert-warning">Not yet your turn!</div>';
-                echo '<a href="/nationals-2014/games/">Return to schedule.</a>';
+                echo '<a href="/nationals-2014-postseason/games/">Return to schedule.</a>';
             } else if ($error == 4) {
                 echo '<div class="alert alert-warning">It is currently your turn, no need to reset.</div>';
             } else {
@@ -31,6 +31,11 @@
                     <col class="col-xs-2" />
                     <col class="col-xs-2" />
                     <col class="col-xs-3" />
+                    <?php
+                     if (isset($games[0]) && isset($games[0]["gamePrice"])) {
+                        echo '<col class="col-xs-2" />'; 
+                     }
+                    ?>
                 </colgroup>
                 <thead>
                     <tr>
@@ -39,6 +44,11 @@
                         <th>Sortable Date/Time</th>
                         <th>Opponent</th>
                         <th>Shareholder</th>
+                        <?php
+                            if (isset($games[0]) && isset($games[0]["gamePrice"])) {
+                                echo '<th>Share Price</th>'; 
+                            }
+                        ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,6 +63,9 @@
                             echo "<td>" . $g["shareholder"] . "</td>";
                         } else {
                             echo "<td> </td>";
+                        }
+                        if (isset($g["gamePrice"])) {
+                            echo "<td>" . $g["gamePrice"] . "</td>";
                         }
                     }
                 ?>
@@ -82,7 +95,7 @@
                 </div><!-- /.modal -->
                 
             
-                <form id="selectSubmission" name="ssubmit" action="/nationals-2014/games/" method="POST">
+                <form id="selectSubmission" name="ssubmit" action="/nationals-2014-postseason/games/" method="POST">
                     <input type="hidden" name="uHash" value="<?php echo $uHash; ?>">
                     <input type="hidden" id="fgID" name="gID" value="">
                 </form> 

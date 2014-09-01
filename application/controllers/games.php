@@ -24,7 +24,7 @@ class Games extends CI_Controller {
                 //echo "uHASH: " . $uHash . "<br />";
                // echo "gID: " . $gID . "<br /><br />";
                 
-                $query = $this->db->get_where('shareholders', array('shHash' => $uHash, 'shStatus' => '1'));
+                $query = $this->db->get_where($this->config->item('shareholders_table'), array('shHash' => $uHash, 'shStatus' => '1'));
 	            if ($query->num_rows() > 0) {
 	                $row = $query->row(0);
 	                $shID = $row->shID; 
@@ -34,19 +34,19 @@ class Games extends CI_Controller {
 	                        "shStatus" => '2',
 	                        "gameID" => $gID
 	                    );
-                    $this->db->update('shareholders', $udata, array('shHash' => $uHash));
+                    $this->db->update($this->config->item('shareholders_table'), $udata, array('shHash' => $uHash));
                     
                     echo "Just selected: " . $shName . "<br />";
-                    echo '<a href="/nationals-2014/games/' . $uHash . '/reset">Reset pick</a><br /><br />';
+                    echo '<a href="/nationals-2014-postseason/games/' . $uHash . '/reset">Reset pick</a><br /><br />';
                     
                     $where = "shName='" . $shName . "' AND ( shStatus=0 OR shStatus=1 ) AND shID != 1";
                     $this->db->where($where, NULL, FALSE);
-                    $query = $this->db->get('shareholders');
+                    $query = $this->db->get($this->config->item('shareholders_table'));
                     $togo = $query->num_rows();
                     
                     $nextID = $shID + 1;
                    // echo $nextID . "<br />";
-                    $query = $this->db->get_where('shareholders', array('shID' => $nextID));
+                    $query = $this->db->get_where($this->config->item('shareholders_table'), array('shID' => $nextID));
                     if ($query->num_rows() > 0) {
 	                    $row = $query->row(0);
 	                    $nextName = $row->shName;
@@ -54,9 +54,9 @@ class Games extends CI_Controller {
 	                    $nextEmail = $row->shEmail;
 	                    echo "Next voter is: " . $nextName . "<br />";
 	                    echo "Hash: $nextHash <br />";
-	                    echo '<a href="/nationals-2014/games/' . $nextHash . '/select">/nationals-2014/games/' . $nextHash . '/select</a><br />';
+	                    echo '<a href="/nationals-2014-postseason/games/' . $nextHash . '/select">/nationals-2014-postseason/games/' . $nextHash . '/select</a><br />';
 	                    $udata = array("shStatus" => '1');
-	                    $this->db->update('shareholders', $udata, array('shID' => $nextID));
+	                    $this->db->update($this->config->item('shareholders_table'), $udata, array('shID' => $nextID));
 	                    
 	                    $to = $nextEmail;
 	                    $subject = "You're up! Time to pick your (" . $nextName . ") next Nationals game.";
@@ -69,7 +69,7 @@ class Games extends CI_Controller {
                         
                         $sn = $_SERVER["SERVER_NAME"];
                         
-                        $email = "Click the link below (or copy and paste it into your browser) to select your (" . $nextName . ") next Nationals game. \n\nhttp://" . $sn . "/nationals-2014/games/" . $nextHash . "/select";
+                        $email = "Click the link below (or copy and paste it into your browser) to select your (" . $nextName . ") next Nationals game. \n\nhttp://" . $sn . "/nationals-2014-postseason/games/" . $nextHash . "/select";
 
                         mail($to, $subject, $email, implode("\r\n", $headers));
                         //echo $email;
@@ -84,7 +84,7 @@ class Games extends CI_Controller {
 	    
 	    $games = $this->gamedata();
         
-        $data['page_title'] = 'Nationals Home Games 2014';
+        $data['page_title'] = 'Nationals Postseason Home Games 2014';
 	    $data['page_lead'] = '';
 	    $data['games'] = $games;
 	    $data['error'] = false;
@@ -104,7 +104,7 @@ class Games extends CI_Controller {
         
         $games = $this->gamedata("shareholder", $shName);
         
-        $data['page_title'] = 'Nationals Home Games 2014';
+        $data['page_title'] = 'Nationals Postseason Home Games 2014';
 	    $data['page_lead'] = '';
 	    $data['games'] = $games;
 	    $data['error'] = false;
@@ -123,7 +123,7 @@ class Games extends CI_Controller {
         
         $games = $this->gamedata("opponent", $opponent);
         
-        $data['page_title'] = 'Nationals Home Games 2014';
+        $data['page_title'] = 'Nationals Postseason Home Games 2014';
 	    $data['page_lead'] = '';
 	    $data['games'] = $games;
 	    $data['error'] = false;
@@ -141,7 +141,7 @@ class Games extends CI_Controller {
         $error = false;
 	    $this->load->database();
 	    
-	    $query = $this->db->get_where('shareholders', array('shHash' => $shHash));
+	    $query = $this->db->get_where($this->config->item('shareholders_table'), array('shHash' => $shHash));
 	    $shareholder = array();
 	    if ($query->num_rows() > 0) {
 	        $row = $query->row(0);
@@ -162,7 +162,7 @@ class Games extends CI_Controller {
 	        $error = 3;
 	    }
 	    
-        $data['page_title'] = 'Nationals Home Games 2014';
+        $data['page_title'] = 'Nationals Postseason Home Games 2014';
         $data['page_lead'] = '';
         $data['message'] = false;
         $data['error'] = $error;
@@ -177,7 +177,7 @@ class Games extends CI_Controller {
 	        
 	        $where = "shName='" . $shareholder["shName"] . "' AND ( shStatus=1 OR shStatus=2 ) AND shID != 1";
             $this->db->where($where, NULL, FALSE);
-            $query = $this->db->get('shareholders');
+            $query = $this->db->get($this->config->item('shareholders_table'));
             $selectNum = $query->num_rows();
                     
 	        $games = $this->gamedata();
@@ -195,7 +195,7 @@ class Games extends CI_Controller {
 	    $message = false;
 	    $this->load->database();
 
-	    $query = $this->db->get_where('shareholders', array('shHash' => $shHash));
+	    $query = $this->db->get_where($this->config->item('shareholders_table'), array('shHash' => $shHash));
 	    $shareholder = array();
 	    if ($query->num_rows() > 0) {
 	        $row = $query->row(0);
@@ -219,7 +219,7 @@ class Games extends CI_Controller {
                 "shStatus" => '1',
                 "gameID" => NULL
             );
-            $this->db->update('shareholders', $udata, array('shHash' => $shHash));
+            $this->db->update($this->config->item('shareholders_table'), $udata, array('shHash' => $shHash));
             $shareholder["shStatus"] = '1';
             $message = 3;
             
@@ -227,10 +227,10 @@ class Games extends CI_Controller {
                 "shStatus" => '0',
                 "gameID" => NULL
             );
-            $query = $this->db->update('shareholders', $udata, array('shID' => ($shareholder["shID"] + 1)));
+            $query = $this->db->update($this->config->item('shareholders_table'), $udata, array('shID' => ($shareholder["shID"] + 1)));
 	    }
 	    
-	    $data['page_title'] = 'Nationals Home Games 2014';
+	    $data['page_title'] = 'Nationals Postseason Home Games 2014';
         $data['page_lead'] = '';
         $data['message'] = $message;
         $data['error'] = $error;
@@ -245,7 +245,7 @@ class Games extends CI_Controller {
 	        
 	        $where = "shName='" . $shareholder["shName"] . "' AND ( shStatus=1 OR shStatus=2 ) AND shID != 1";
             $this->db->where($where, NULL, FALSE);
-            $query = $this->db->get('shareholders');
+            $query = $this->db->get($this->config->item('shareholders_table'));
             $selectNum = $query->num_rows();
                     
 	        $games = $this->gamedata();
@@ -261,16 +261,16 @@ class Games extends CI_Controller {
 	private function gamedata($q = "all", $filter="") {
 	    $query = false;
 	    if ($q == "all") {
-	        $query = $this->db->get('games');
+	        $query = $this->db->get($this->config->item('games_table'));
 	    } else if ($q == "shareholder") {
-	        $this->db->from('games');
-            $this->db->from('shareholders');
-            $this->db->where('shareholders.gameID = games.gameID');
-	        $this->db->where('shareholders.shName', $filter);
+	        $this->db->from($this->config->item('games_table'));
+            $this->db->from($this->config->item('shareholders_table'));
+            $this->db->where($this->config->item('shareholders_table') . '.gameID = '. $this->config->item('games_table') . '.gameID');
+	        $this->db->where($this->config->item('shareholders_table') . '.shName', $filter);
             $query = $this->db->get();
 	    } else if ($q == "opponent") {
-	        //$this->db->from('games');
-            //$this->db->from('shareholders');
+	        //$this->db->from($this->config->item('games_table'));
+            //$this->db->from($this->config->item('shareholders_table'));
             //$this->db->where('shareholders.gameID = games.gameID');
 	        //$this->db->where('shareholders.shName', $filter);
             //$query = $this->db->get();
@@ -286,13 +286,14 @@ class Games extends CI_Controller {
 	            "gameNum" => $x + 1,
 	            "gameTS" => $gameDT,
 	            "gameOpponent" => $row->gameOpponent,
-	            "gameSpecial" => $row->gameSpecial
+	            "gameSpecial" => $row->gameSpecial,
+	            "gamePrice" => $row->gamePrice
 	            );
 	       array_push($games, $g);
 	    }
 	    
 	    for ($x=0; $x<count($games); $x++) {
-            $query = $this->db->get_where('shareholders', array('gameID' => $games[$x]["gameID"]));
+            $query = $this->db->get_where($this->config->item('shareholders_table'), array('gameID' => $games[$x]["gameID"]));
             if ($query->num_rows() > 0) {
                 $row = $query->row(0);
                 $games[$x]["shareholder"] = $row->shName;

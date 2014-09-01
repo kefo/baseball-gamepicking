@@ -3,8 +3,7 @@
 	<head>
 		<title><?php echo $page_title ?></title>
 		<meta charset="UTF-8">
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="<?php echo RELATIVEPATH; ?>static/bootstrap/js/bootstrap.min.js"></script>
+		<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
 		
 		<link href="<?php echo RELATIVEPATH; ?>static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="<?php echo RELATIVEPATH; ?>static/style.css" rel="stylesheet">
@@ -13,6 +12,8 @@
         <script type="text/javascript" src="<?php echo RELATIVEPATH; ?>static/js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="<?php echo RELATIVEPATH; ?>static/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="<?php echo RELATIVEPATH; ?>static/js/jquery.tablesorter.widgets.min.js"></script>
+        
+        <script src="<?php echo RELATIVEPATH; ?>static/bootstrap/js/bootstrap.min.js"></script>
         
         <link href="<?php echo RELATIVEPATH; ?>static/css/tablesorter.theme.bootstrap.css" rel="stylesheet">
         
