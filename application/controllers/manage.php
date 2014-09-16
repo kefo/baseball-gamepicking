@@ -25,32 +25,32 @@ class Manage extends CI_Controller {
     */
     
     var $gamesA = array(
-		array("gameID" => NULL, "gameDate" => "2014-09-29", "gameTime" => "20:05", "gameOpponent" => "Tie breaker", "gamePrice" => "110"),
+		array("gameID" => NULL, "gameDate" => "2014-09-30", "gameTime" => "20:05", "gameOpponent" => "Tie breaker", "gamePrice" => "110"),
 		
-		array("gameID" => NULL, "gameDate" => "2014-09-30", "gameTime" => "20:05", "gameOpponent" => "Wildcard", "gamePrice" => "160"),
+		array("gameID" => NULL, "gameDate" => "2014-10-01", "gameTime" => "20:05", "gameOpponent" => "Wildcard", "gamePrice" => "160"),
 		
-		array("gameID" => NULL, "gameDate" => "2014-10-02", "gameTime" => "20:05", "gameOpponent" => "LDS1", "gamePrice" => "160"),
-		array("gameID" => NULL, "gameDate" => "2014-10-03", "gameTime" => "20:05", "gameOpponent" => "LDS2", "gamePrice" => "160"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-05", "gameTime" => "20:05", "gameOpponent" => "LDS3", "gamePrice" => "160"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-06", "gameTime" => "20:05", "gameOpponent" => "LDS4", "gamePrice" => "160"),
-		array("gameID" => NULL, "gameDate" => "2014-10-08", "gameTime" => "20:05", "gameOpponent" => "LDS5", "gamePrice" => "160"),
+		array("gameID" => NULL, "gameDate" => "2014-10-03", "gameTime" => "20:05", "gameOpponent" => "LDS1", "gamePrice" => "160"),
+		array("gameID" => NULL, "gameDate" => "2014-10-04", "gameTime" => "20:05", "gameOpponent" => "LDS2", "gamePrice" => "160"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-06", "gameTime" => "20:05", "gameOpponent" => "LDS3", "gamePrice" => "160"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-07", "gameTime" => "20:05", "gameOpponent" => "LDS4", "gamePrice" => "160"),
+		array("gameID" => NULL, "gameDate" => "2014-10-09", "gameTime" => "20:05", "gameOpponent" => "LDS5", "gamePrice" => "160"),
 		
-		array("gameID" => NULL, "gameDate" => "2014-10-10", "gameTime" => "20:05", "gameOpponent" => "LCS1", "gamePrice" => "280"),
-		array("gameID" => NULL, "gameDate" => "2014-10-11", "gameTime" => "20:05", "gameOpponent" => "LCS2", "gamePrice" => "280"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-13", "gameTime" => "20:05", "gameOpponent" => "LCS3", "gamePrice" => "280"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-14", "gameTime" => "20:05", "gameOpponent" => "LCS4", "gamePrice" => "280"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-15", "gameTime" => "20:05", "gameOpponent" => "LCS5", "gamePrice" => "280"),
-		array("gameID" => NULL, "gameDate" => "2014-10-17", "gameTime" => "20:05", "gameOpponent" => "LCS6", "gamePrice" => "280"),
-		array("gameID" => NULL, "gameDate" => "2014-10-18", "gameTime" => "20:05", "gameOpponent" => "LCS7", "gamePrice" => "280"),
+		array("gameID" => NULL, "gameDate" => "2014-10-11", "gameTime" => "20:05", "gameOpponent" => "LCS1", "gamePrice" => "280"),
+		array("gameID" => NULL, "gameDate" => "2014-10-12", "gameTime" => "20:05", "gameOpponent" => "LCS2", "gamePrice" => "280"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-14", "gameTime" => "20:05", "gameOpponent" => "LCS3", "gamePrice" => "280"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-15", "gameTime" => "20:05", "gameOpponent" => "LCS4", "gamePrice" => "280"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-16", "gameTime" => "20:05", "gameOpponent" => "LCS5", "gamePrice" => "280"),
+		array("gameID" => NULL, "gameDate" => "2014-10-18", "gameTime" => "20:05", "gameOpponent" => "LCS6", "gamePrice" => "280"),
+		array("gameID" => NULL, "gameDate" => "2014-10-19", "gameTime" => "20:05", "gameOpponent" => "LCS7", "gamePrice" => "280"),
 		
 		// American league won all-star game in 2014, so we know Nats will not have home field advantage (but what was charged?).
-		//array("gameID" => NULL, "gameDate" => "2014-10-22", "gameTime" => "20:05", "gameOpponent" => "WS1", "gamePrice" => "550"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-23", "gameTime" => "20:05", "gameOpponent" => "WS2", "gamePrice" => "550"),
-		array("gameID" => NULL, "gameDate" => "2014-10-25", "gameTime" => "20:05", "gameOpponent" => "WS3", "gamePrice" => "550"),
-		array("gameID" => NULL, "gameDate" => "2014-10-26", "gameTime" => "20:05", "gameOpponent" => "WS4", "gamePrice" => "550"),
-		array("gameID" => NULL, "gameDate" => "2014-10-27", "gameTime" => "20:05", "gameOpponent" => "WS5", "gamePrice" => "550")
-		//array("gameID" => NULL, "gameDate" => "2014-10-29", "gameTime" => "20:05", "gameOpponent" => "WS6", "gamePrice" => "550"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-30", "gameTime" => "20:05", "gameOpponent" => "WS7", "gamePrice" => "550"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-21", "gameTime" => "20:05", "gameOpponent" => "WS1", "gamePrice" => "550"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-22", "gameTime" => "20:05", "gameOpponent" => "WS2", "gamePrice" => "550"),
+		array("gameID" => NULL, "gameDate" => "2014-10-24", "gameTime" => "20:05", "gameOpponent" => "WS3", "gamePrice" => "550"),
+		array("gameID" => NULL, "gameDate" => "2014-10-25", "gameTime" => "20:05", "gameOpponent" => "WS4", "gamePrice" => "550"),
+		array("gameID" => NULL, "gameDate" => "2014-10-26", "gameTime" => "20:05", "gameOpponent" => "WS5", "gamePrice" => "550")
+		//array("gameID" => NULL, "gameDate" => "2014-10-28", "gameTime" => "20:05", "gameOpponent" => "WS6", "gamePrice" => "550"),
+		//array("gameID" => NULL, "gameDate" => "2014-10-29", "gameTime" => "20:05", "gameOpponent" => "WS7", "gamePrice" => "550"),
 		
 	);
 
