@@ -2,6 +2,8 @@
 
 class Games extends CI_Controller {
 	
+	var $pagetitle = "Nationals Postseason Home Games 2014 - Round 2";
+	
 	public function __construct()
 	{
 		parent::__construct();
@@ -37,7 +39,7 @@ class Games extends CI_Controller {
                     $this->db->update($this->config->item('shareholders_table'), $udata, array('shHash' => $uHash));
                     
                     echo "Just selected: " . $shName . "<br />";
-                    echo '<a href="/nationals-2014-postseason/games/' . $uHash . '/reset">Reset pick</a><br /><br />';
+                    echo '<a href="/' . APPDIRNAME . '/games/' . $uHash . '/reset">Reset pick</a><br /><br />';
                     
                     $where = "shName='" . $shName . "' AND ( shStatus=0 OR shStatus=1 ) AND shID != 1";
                     $this->db->where($where, NULL, FALSE);
@@ -54,7 +56,7 @@ class Games extends CI_Controller {
 	                    $nextEmail = $row->shEmail;
 	                    echo "Next voter is: " . $nextName . "<br />";
 	                    echo "Hash: $nextHash <br />";
-	                    echo '<a href="/nationals-2014-postseason/games/' . $nextHash . '/select">/nationals-2014-postseason/games/' . $nextHash . '/select</a><br />';
+	                    echo '<a href="/' . APPDIRNAME . '/games/' . $nextHash . '/select">/' . APPDIRNAME . '/games/' . $nextHash . '/select</a><br />';
 	                    $udata = array("shStatus" => '1');
 	                    $this->db->update($this->config->item('shareholders_table'), $udata, array('shID' => $nextID));
 	                    
@@ -69,7 +71,7 @@ class Games extends CI_Controller {
                         
                         $sn = $_SERVER["SERVER_NAME"];
                         
-                        $email = "Click the link below (or copy and paste it into your browser) to select your (" . $nextName . ") next Nationals game. \n\nhttp://" . $sn . "/nationals-2014-postseason/games/" . $nextHash . "/select";
+                        $email = "Click the link below (or copy and paste it into your browser) to select your (" . $nextName . ") next Nationals game. \n\nhttp://" . $sn . "/" . APPDIRNAME . "/games/" . $nextHash . "/select";
 
                         mail($to, $subject, $email, implode("\r\n", $headers));
                         //echo $email;
@@ -84,7 +86,7 @@ class Games extends CI_Controller {
 	    
 	    $games = $this->gamedata();
         
-        $data['page_title'] = 'Nationals Postseason Home Games 2014';
+        $data['page_title'] = $this->pagetitle;
 	    $data['page_lead'] = '';
 	    $data['games'] = $games;
 	    $data['error'] = false;
@@ -104,7 +106,7 @@ class Games extends CI_Controller {
         
         $games = $this->gamedata("shareholder", $shName);
         
-        $data['page_title'] = 'Nationals Postseason Home Games 2014';
+        $data['page_title'] = $this->pagetitle;
 	    $data['page_lead'] = '';
 	    $data['games'] = $games;
 	    $data['error'] = false;
@@ -123,7 +125,7 @@ class Games extends CI_Controller {
         
         $games = $this->gamedata("opponent", $opponent);
         
-        $data['page_title'] = 'Nationals Postseason Home Games 2014';
+        $data['page_title'] = $this->pagetitle;
 	    $data['page_lead'] = '';
 	    $data['games'] = $games;
 	    $data['error'] = false;
@@ -162,7 +164,7 @@ class Games extends CI_Controller {
 	        $error = 3;
 	    }
 	    
-        $data['page_title'] = 'Nationals Postseason Home Games 2014';
+        $data['page_title'] = $this->pagetitle;
         $data['page_lead'] = '';
         $data['message'] = false;
         $data['error'] = $error;
@@ -230,7 +232,7 @@ class Games extends CI_Controller {
             $query = $this->db->update($this->config->item('shareholders_table'), $udata, array('shID' => ($shareholder["shID"] + 1)));
 	    }
 	    
-	    $data['page_title'] = 'Nationals Postseason Home Games 2014';
+	    $data['page_title'] = $this->pagetitle;
         $data['page_lead'] = '';
         $data['message'] = $message;
         $data['error'] = $error;

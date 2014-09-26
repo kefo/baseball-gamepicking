@@ -2,13 +2,13 @@
             <?php
             if ($error == 1) {
                 echo '<div class="alert alert-warning">Invalid selection ID.</div>';
-                echo '<a href="/nationals-2014-postseason/games/">Return to schedule.</a>';
+                echo '<a href="/' . APPDIRNAME . '/games/">Return to schedule.</a>';
             } else if ($error == 2) {
                 echo '<div class="alert alert-warning">Selection already made for this ID.</div>';
-                echo '<a href="/nationals-2014-postseason/games/">Return to schedule.</a>';
+                echo '<a href="/' . APPDIRNAME . '/games/">Return to schedule.</a>';
             } else if ($error == 3) {
                 echo '<div class="alert alert-warning">Not yet your turn!</div>';
-                echo '<a href="/nationals-2014-postseason/games/">Return to schedule.</a>';
+                echo '<a href="/' . APPDIRNAME . '/games/">Return to schedule.</a>';
             } else if ($error == 4) {
                 echo '<div class="alert alert-warning">It is currently your turn, no need to reset.</div>';
             } else {
@@ -95,7 +95,7 @@
                 </div><!-- /.modal -->
                 
             
-                <form id="selectSubmission" name="ssubmit" action="/nationals-2014-postseason/games/" method="POST">
+                <form id="selectSubmission" name="ssubmit" action="/<?php echo APPDIRNAME; ?>/games/" method="POST">
                     <input type="hidden" name="uHash" value="<?php echo $uHash; ?>">
                     <input type="hidden" id="fgID" name="gID" value="">
                 </form> 

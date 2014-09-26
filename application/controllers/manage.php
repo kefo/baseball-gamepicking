@@ -23,122 +23,7 @@ class Manage extends CI_Controller {
     
     One must assume home field advantage.
     */
-    
-    var $gamesA = array(
-		array("gameID" => NULL, "gameDate" => "2014-09-30", "gameTime" => "20:05", "gameOpponent" => "Tie breaker", "gamePrice" => "110"),
-		
-		array("gameID" => NULL, "gameDate" => "2014-10-01", "gameTime" => "20:05", "gameOpponent" => "Wildcard", "gamePrice" => "160"),
-		
-		array("gameID" => NULL, "gameDate" => "2014-10-03", "gameTime" => "20:05", "gameOpponent" => "LDS1", "gamePrice" => "160"),
-		array("gameID" => NULL, "gameDate" => "2014-10-04", "gameTime" => "20:05", "gameOpponent" => "LDS2", "gamePrice" => "160"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-06", "gameTime" => "20:05", "gameOpponent" => "LDS3", "gamePrice" => "160"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-07", "gameTime" => "20:05", "gameOpponent" => "LDS4", "gamePrice" => "160"),
-		array("gameID" => NULL, "gameDate" => "2014-10-09", "gameTime" => "20:05", "gameOpponent" => "LDS5", "gamePrice" => "160"),
-		
-		array("gameID" => NULL, "gameDate" => "2014-10-11", "gameTime" => "20:05", "gameOpponent" => "LCS1", "gamePrice" => "280"),
-		array("gameID" => NULL, "gameDate" => "2014-10-12", "gameTime" => "20:05", "gameOpponent" => "LCS2", "gamePrice" => "280"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-14", "gameTime" => "20:05", "gameOpponent" => "LCS3", "gamePrice" => "280"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-15", "gameTime" => "20:05", "gameOpponent" => "LCS4", "gamePrice" => "280"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-16", "gameTime" => "20:05", "gameOpponent" => "LCS5", "gamePrice" => "280"),
-		array("gameID" => NULL, "gameDate" => "2014-10-18", "gameTime" => "20:05", "gameOpponent" => "LCS6", "gamePrice" => "280"),
-		array("gameID" => NULL, "gameDate" => "2014-10-19", "gameTime" => "20:05", "gameOpponent" => "LCS7", "gamePrice" => "280"),
-		
-		// American league won all-star game in 2014, so we know Nats will not have home field advantage (but what was charged?).
-		//array("gameID" => NULL, "gameDate" => "2014-10-21", "gameTime" => "20:05", "gameOpponent" => "WS1", "gamePrice" => "550"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-22", "gameTime" => "20:05", "gameOpponent" => "WS2", "gamePrice" => "550"),
-		array("gameID" => NULL, "gameDate" => "2014-10-24", "gameTime" => "20:05", "gameOpponent" => "WS3", "gamePrice" => "550"),
-		array("gameID" => NULL, "gameDate" => "2014-10-25", "gameTime" => "20:05", "gameOpponent" => "WS4", "gamePrice" => "550"),
-		array("gameID" => NULL, "gameDate" => "2014-10-26", "gameTime" => "20:05", "gameOpponent" => "WS5", "gamePrice" => "550")
-		//array("gameID" => NULL, "gameDate" => "2014-10-28", "gameTime" => "20:05", "gameOpponent" => "WS6", "gamePrice" => "550"),
-		//array("gameID" => NULL, "gameDate" => "2014-10-29", "gameTime" => "20:05", "gameOpponent" => "WS7", "gamePrice" => "550"),
-		
-	);
 
-	var $shareholders = array(
-		//"Ford",
-		"Ford",
-		"Mow",
-		"Hisel",
-		"Sherick",
-		"Harmala",
-		"Gikowich",
-		"McDermott",
-		"Baldwin",
-		"Baldwin",
-		"McDermott",
-		"Gikowich",
-		"Harmala"
-		/*
-		"Sherick",
-		"Hisel",
-		"Mow",
-		"Ford",
-		"Ford",
-		"Mow",
-		"Hisel",
-		"Sherick",
-		"Harmala",
-		"Gikowich",
-		"McDermott",
-		"Baldwin",
-		"Baldwin",
-		"McDermott",
-		"Gikowich",
-		"Harmala",
-		"Sherick",
-		"Hisel",
-		"Mow",
-		"Ford",
-		"Ford",
-		"Mow",
-		"Hisel",
-		"Sherick",
-		"Harmala",
-		"Gikowich",
-		"McDermott",
-		"Baldwin",
-		"Baldwin",
-		"McDermott",
-		"Gikowich",
-		"Harmala",
-		"Sherick",
-		"Hisel",
-		"Mow",
-		"Ford",
-		"Ford",
-		"Mow",
-		"Hisel",
-		"Sherick",
-		"Harmala",
-		"Gikowich",
-		"McDermott",
-		"Baldwin",
-		"Baldwin",
-		"McDermott",
-		"Gikowich",
-		"Harmala",
-		"Sherick",
-		"Hisel",
-		"Mow",
-		"Ford",
-		"Ford",
-		"Mow",
-		"Hisel",
-		"Sherick",
-		"Harmala",
-		"Gikowich",
-		"McDermott",
-		"Baldwin",
-		"Baldwin",
-		"McDermott",
-		"Gikowich",
-		"Harmala",
-		"Sherick",
-		"Hisel",
-		"Mow",
-		"Ford"
-		*/
-	);
 
 	public function __construct()
 	{
@@ -177,6 +62,9 @@ class Manage extends CI_Controller {
 	    $this->load->database();
 	    $this->load->dbforge();
 	    
+	    $gamesA = $this->config->item('games');
+	    $shareholders = $this->config->item('shareholders');
+	
 	    $fields = array(
             'gameID' => array(
                 'type' => 'INT',
@@ -208,7 +96,7 @@ class Manage extends CI_Controller {
         $this->dbforge->add_key('gameID');
         $manage_table = $this->dbforge->create_table($this->config->item('games_table'), TRUE); // TRUE will check if it exists
         
-        $this->db->insert_batch($this->config->item('games_table'), $this->gamesA); 
+        $this->db->insert_batch($this->config->item('games_table'), $gamesA); 
         
         $fields = array(
             'shID' => array(
@@ -269,8 +157,8 @@ class Manage extends CI_Controller {
             );
         $now = strtotime("now");
         $shareholdersA = array();
-        for ($x=0; $x<count($this->shareholders); $x++) {
-            $sh = $this->shareholders[$x];
+        for ($x=0; $x<count($shareholders); $x++) {
+            $sh = $shareholders[$x];
             $status = 0;
             if ($x == 0) {
                 $status = 1;
@@ -290,7 +178,7 @@ class Manage extends CI_Controller {
         
         $sn = $_SERVER["SERVER_NAME"];
         $headers = 'From: kford@3windmills.com';
-        $msg = "Click the link below (or copy and paste it into your browser) to select the first Nationals game. \n\nhttp://" . $sn . "/nationals-2014-postseason/games/" . $shareholdersA[0]["shHash"] . "/select";
+        $msg = "Click the link below (or copy and paste it into your browser) to select the first Nationals game. \n\nhttp://" . $sn . "/" . APPDIRNAME . "/games/" . $shareholdersA[0]["shHash"] . "/select";
         mail($shareholdersA[0]["shEmail"], "First Pick", $msg, $headers);
         
 		$data['page_title'] = 'Instantiate DB';
